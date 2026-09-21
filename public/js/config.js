@@ -1,0 +1,54 @@
+// Constantes ajustables del proyecto (única fuente de configuración)
+export const CONFIG = {
+  // Frames
+  FRAME_COUNT: 280,
+  MOBILE_MAX_WIDTH: 900, // ≤ este ancho usa la carpeta móvil
+  FOLDERS: { desktop: 'frames/1600', mobile: 'frames/1280' },
+
+  // Scroll: alturas en múltiplos del alto de pantalla
+  HOLD_VH: 1, // tramo fijo en cada parada
+  TRANSITION_VH: 1.5, // tramo entre paradas
+  FADE_FRACTION: 0.35, // parte de la transición en la que el texto entra/sale
+  FADE_SHIFT_PX: 32, // desplazamiento vertical del texto al entrar/salir
+  LERP: 0.15, // suavizado del frame mostrado
+
+  // Carga y memoria
+  PRELOAD_STEP: 4, // fase 1: 1 de cada N frames + las paradas
+  CONCURRENCY: 6, // descargas simultáneas
+  WINDOW: { desktop: 45, mobile: 30 }, // frames decodificados a cada lado
+  MAX_DECODING: 4, // decodificaciones simultáneas
+
+  // Canvas
+  MAX_DPR: 2,
+  FIT: 'cover', // 'cover' o 'contain' (barras negras)
+
+  // Paradas: frame, lado del texto (left | right | bottom) y punto de enfoque horizontal (0–1)
+  STOPS: [
+    { id: 'hero', frame: 1, side: 'left', focusX: 0.45 },
+    { id: 'cifras', frame: 40, side: 'right', focusX: 0.4 },
+    { id: 'presentacion', frame: 80, side: 'left', focusX: 0.5 },
+    { id: 'skills', frame: 120, side: 'right', focusX: 0.4 },
+    { id: 'certificados', frame: 160, side: 'right', focusX: 0.35 },
+    { id: 'proyectos-escena', frame: 200, side: 'bottom', focusX: 0.6 },
+    { id: 'github', frame: 240, side: 'right', focusX: 0.3 },
+    { id: 'contacto-escena', frame: 280, side: 'left', focusX: 0.55 },
+  ],
+
+  // Proyectos destacados de la parada 200 (orden fijo, coincide con la tele renderizada)
+  FEATURED_IDS: ['construcciones-chamusinos', 'calcufacil', 'cineverse'],
+  PROJECTS_URL: 'data/projects.json',
+
+  // GitHub
+  GITHUB_USER: 'danniigz',
+  GITHUB_DATA_URL: 'data/github.json',
+
+  // Contacto
+  CONTACT: {
+    email: 'drodriguez.daw@gmail.com',
+    linkedin: 'https://www.linkedin.com/in/daniel-rodriguez-machado-410313346/',
+    github: 'https://github.com/danniigz',
+  },
+
+  // Contadores (ms)
+  COUNTER_MS: 700,
+};

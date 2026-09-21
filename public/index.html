@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Daniel Rodríguez Machado · Desarrollador web freelance</title>
+  <meta name="description" content="Portfolio de Daniel Rodríguez Machado, desarrollador web fullstack freelance: proyectos reales, skills, certificados y contacto, recorriendo su despacho en 3D.">
+  <meta name="theme-color" content="#0b0906">
+  <meta property="og:title" content="Daniel Rodríguez Machado · Desarrollador web freelance">
+  <meta property="og:description" content="Frontend que enamora, backend que funciona. Recorre mi despacho en 3D.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="frames/1280/frame_0001.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <a class="skip" href="#proyectos">Saltar a proyectos</a>
+
+  <div id="cargando" class="loader" aria-live="polite">
+    <p class="loader__title">Cargando la escena…</p>
+    <div class="loader__track" role="progressbar" aria-label="Progreso de carga" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <div id="cargando-barra" class="loader__bar"></div>
+    </div>
+    <p id="cargando-pct" class="loader__pct">0%</p>
+  </div>
+
+  <main>
+    <!-- Contenedor alto: su altura la fija scene.js -->
+    <div id="scroll" class="scroll">
+      <div class="stage">
+        <canvas id="lienzo" class="canvas" aria-hidden="true"></canvas>
+
+        <!-- 1 · Hero -->
+        <section class="stop" id="hero" aria-labelledby="t-hero">
+          <div class="card card--hero">
+            <p class="eyebrow">Desarrollador web freelance</p>
+            <h1 id="t-hero">Daniel Rodríguez Machado</h1>
+            <p class="lead">Desarrollo aplicaciones web de principio a fin, integrando IA en cada etapa del proceso. Frontend que enamora, backend que funciona.</p>
+            <p class="scroll-hint">Desplaza para recorrer el despacho <span aria-hidden="true">↓</span></p>
+          </div>
+        </section>
+
+        <!-- 2 · Cifras -->
+        <section class="stop" id="cifras" aria-labelledby="t-cifras">
+          <div class="card">
+            <h2 id="t-cifras" class="visually-hidden">Cifras</h2>
+            <dl class="stats">
+              <div class="stat"><dt>formándome</dt><dd>+<span data-count="3">3</span> años</dd></div>
+              <div class="stat"><dt>proyectos reales</dt><dd>+<span data-count="10">10</span></dd></div>
+              <div class="stat"><dt>tecnologías</dt><dd>+<span data-count="20">20</span></dd></div>
+              <div class="stat"><dt>de aprender</dt><dd><span aria-label="infinitas">∞</span> ganas</dd></div>
+            </dl>
+          </div>
+        </section>
+
+        <!-- 3 · Presentación -->
+        <section class="stop" id="presentacion" aria-labelledby="t-presentacion">
+          <div class="card">
+            <p class="eyebrow">Presentación</p>
+            <h2 id="t-presentacion">Quién soy</h2>
+            <!-- Hueco para la foto (fase 3) -->
+            <p>Soy Daniel Rodríguez Machado, desarrollador web fullstack freelance con proyectos reales en producción. Me apasiona construir productos digitales que no solo funcionen bien, sino que también se vean increíbles.</p>
+            <p>Además, tengo un Máster en Desarrollo de Software con IA, especializado en arquitectura de sistemas, IA generativa y buenas prácticas de ingeniería.</p>
+          </div>
+        </section>
+
+        <!-- 4 · Skills -->
+        <section class="stop" id="skills" aria-labelledby="t-skills">
+          <div class="card card--wide">
+            <p class="eyebrow">Skills</p>
+            <h2 id="t-skills">Mis skills</h2>
+            <h3>Core</h3>
+            <ul class="tags">
+              <li class="tag">HTML5</li><li class="tag">CSS3</li><li class="tag">Bootstrap</li><li class="tag">JavaScript (ES6+)</li><li class="tag">PHP</li><li class="tag">Laravel</li><li class="tag">Java</li><li class="tag">MySQL</li><li class="tag">Git/GitHub</li><li class="tag">REST API</li><li class="tag">Responsive Design</li>
+            </ul>
+            <h3>IA &amp; Arquitectura</h3>
+            <ul class="tags">
+              <li class="tag">LangChain</li><li class="tag">RAG</li><li class="tag">Prompt Engineering</li><li class="tag">LLMOps</li><li class="tag">Clean Architecture</li><li class="tag">MVC Pattern</li><li class="tag">Docker</li><li class="tag">Cloud (Azure / AWS / GCP)</li><li class="tag">CI/CD</li><li class="tag">OWASP/Seguridad</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- 5 · Certificados (placeholder, fase 4) -->
+        <section class="stop" id="certificados" aria-labelledby="t-cert">
+          <div class="card">
+            <p class="eyebrow">Formación</p>
+            <h2 id="t-cert">Certificados</h2>
+            <!-- TODO(fase 4): certificados reales desde data/certificados.json -->
+            <p class="muted">Próximamente.</p>
+          </div>
+        </section>
+
+        <!-- 6 · Proyectos destacados -->
+        <section class="stop" id="proyectos-escena" aria-labelledby="t-proy">
+          <div class="card card--strip">
+            <div class="strip__head">
+              <h2 id="t-proy">Proyectos destacados</h2>
+              <a class="btn btn--small" href="#proyectos">Ver los 9 proyectos ↓</a>
+            </div>
+            <ul id="destacados" class="featured"></ul>
+          </div>
+        </section>
+
+        <!-- 7 · GitHub -->
+        <section class="stop" id="github" aria-labelledby="t-gh">
+          <div class="card card--wide">
+            <p class="eyebrow">Actividad</p>
+            <h2 id="t-gh">Actividad en GitHub</h2>
+            <div id="github-mapa" class="gh"></div>
+            <p class="muted"><span id="github-total">—</span> contribuciones en el último año · <a href="https://github.com/danniigz" target="_blank" rel="noopener noreferrer">@danniigz</a></p>
+          </div>
+        </section>
+
+        <!-- 8 · Contacto -->
+        <section class="stop" id="contacto-escena" aria-labelledby="t-contacto">
+          <div class="card">
+            <p class="eyebrow">Contacto</p>
+            <h2 id="t-contacto">Hablemos</h2>
+            <div class="actions">
+              <a id="link-email" class="btn btn--primary" href="#">drodriguez.daw@gmail.com</a>
+              <button id="copiar-email" class="btn" type="button"><span>Copiar email</span></button>
+              <a id="link-linkedin" class="btn" href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a id="link-github" class="btn" href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- Modo prefers-reduced-motion: los frames fijos con su texto -->
+    <div id="estatico" class="static" hidden></div>
+
+    <!-- Todos los proyectos -->
+    <section id="proyectos" class="page-section" aria-labelledby="t-proyectos">
+      <div class="page-section__inner">
+        <p class="eyebrow">Proyectos</p>
+        <h2 id="t-proyectos">Ideas que cobran vida</h2>
+        <div id="proyectos-filtros" class="chips" role="group" aria-label="Filtrar por tecnología"></div>
+        <div id="proyectos-grid" class="grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© Daniel Rodríguez Machado · Hecho a mano, con un despacho renderizado en Blender.</p>
+  </footer>
+</body>
+</html>

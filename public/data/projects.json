@@ -1,0 +1,111 @@
+[
+  {
+    "id": "cineverse",
+    "name": "Cineverse",
+    "description": "Réplica de una plataforma de streaming estilo Netflix (sin reproducción de vídeo), proyecto de clase del ciclo DAW.",
+    "tech": ["HTML", "CSS"],
+    "demoUrl": "https://danniigz.github.io/CineVerse1/",
+    "repoUrl": "https://github.com/danniigz/CineVerse1",
+    "image": "assets/img/projects/cineverse.webp",
+    "featured": true,
+    "order": 1,
+    "status": "live"
+  },
+  {
+    "id": "harry-potter-quiz",
+    "name": "Quiz de Harry Potter",
+    "description": "Mini-web interactiva de Harry Potter: quiz de trivia + selector de casa estilo Sombrero Seleccionador, con ranking y diseño mágico animado.",
+    "tech": ["HTML", "CSS", "JavaScript"],
+    "demoUrl": "https://danniigz.github.io/Harry-Potter-Quiz/",
+    "repoUrl": "https://github.com/danniigz/Harry-Potter-Quiz",
+    "image": "assets/img/projects/harry-potter-quiz.webp",
+    "featured": false,
+    "order": 2,
+    "status": "live"
+  },
+  {
+    "id": "demo-barberia",
+    "name": "Demo Barbería",
+    "description": "TODO(Dani): revisa este nombre y esta descripción, los propuso Claude Code y quedó pendiente de tu aprobación. Landing de demostración para una barbería: reserva de citas, servicios y galería, con estética oscura.",
+    "tech": ["HTML", "CSS"],
+    "demoUrl": "https://zonacerodemo.netlify.app",
+    "repoUrl": null,
+    "image": "assets/img/projects/demo-barberia.webp",
+    "featured": false,
+    "order": 3,
+    "status": "live"
+  },
+  {
+    "id": "construcciones-chamusinos",
+    "name": "Construcciones Chamusiños",
+    "description": "Web corporativa para una empresa real de construcción.",
+    "tech": ["HTML", "CSS", "JavaScript"],
+    "demoUrl": "https://construccioneschamusinos.es",
+    "repoUrl": null,
+    "image": "assets/img/projects/construcciones-chamusinos.webp",
+    "featured": true,
+    "order": 4,
+    "status": "live"
+  },
+  {
+    "id": "tintoreria-verin",
+    "name": "Tintorería Verín",
+    "description": "Web para una tintorería local en Verín, con servicios, horarios y contacto.",
+    "tech": ["HTML", "CSS", "JavaScript"],
+    "demoUrl": "https://tintoreriaverin.es",
+    "repoUrl": null,
+    "image": "assets/img/projects/tintoreria-verin.webp",
+    "featured": false,
+    "order": 5,
+    "status": "live"
+  },
+  {
+    "id": "calcufacil",
+    "name": "CalcuFácil",
+    "description": "Suite de calculadoras financieras en español (9 páginas), con tipos de cambio en tiempo real y SEO cuidado.",
+    "tech": ["HTML", "CSS", "JavaScript"],
+    "demoUrl": "https://calcufacil.es",
+    "repoUrl": "https://github.com/danniigz/calcufacil",
+    "image": "assets/img/projects/calcufacil.webp",
+    "featured": true,
+    "order": 6,
+    "status": "live"
+  },
+  {
+    "id": "airecruit",
+    "name": "AIRecruit",
+    "description": "Copiloto de carrera con IA (TFM del máster): análisis de CV, puntuación de compatibilidad con ofertas y generación de cartas de presentación.",
+    "tech": ["Laravel", "OpenAI API", "PostgreSQL"],
+    "demoUrl": "https://airecruit-production.up.railway.app",
+    "repoUrl": "https://github.com/danniigz/airecruit",
+    "demoCredentials": { "label": "Cuenta de prueba", "email": "demo@airecruit.test", "password": "password" },
+    "image": "assets/img/projects/airecruit.webp",
+    "featured": false,
+    "order": 7,
+    "status": "live"
+  },
+  {
+    "id": "cumbrera",
+    "name": "Cumbrera",
+    "description": "Web para una empresa de limpieza de tejados con sección de electricidad y contacto directo por WhatsApp.",
+    "tech": ["HTML", "CSS", "JavaScript"],
+    "demoUrl": "https://danniigz.github.io/cumbrera/",
+    "repoUrl": "https://github.com/danniigz/cumbrera",
+    "image": "assets/img/projects/cumbrera.webp",
+    "featured": false,
+    "order": 8,
+    "status": "live"
+  },
+  {
+    "id": "noitebela",
+    "name": "Noitebela",
+    "description": "Ecommerce en desarrollo para un negocio de Xinzo de Limia.",
+    "tech": [],
+    "demoUrl": null,
+    "repoUrl": null,
+    "image": null,
+    "featured": false,
+    "order": 9,
+    "status": "proximamente"
+  }
+]

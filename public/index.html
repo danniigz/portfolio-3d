@@ -14,6 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/chat.css">
   <script type="module" src="js/main.js"></script>
 </head>
 <body>
@@ -26,6 +27,10 @@
     </div>
     <p id="cargando-pct" class="loader__pct">0%</p>
   </div>
+
+  <button id="chat-launcher" class="chat-launcher" type="button" aria-expanded="false" aria-controls="chat-panel" aria-label="Abrir el asistente de IA">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.5-4.7A8 8 0 1 1 21 12z"/></svg>
+  </button>
 
   <main>
     <!-- Contenedor alto: su altura la fija scene.js -->

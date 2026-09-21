@@ -30,6 +30,12 @@ initCopyEmail($('#copiar-email'));
 // Contacto: enlaces, Calendly y formulario
 initContact();
 
+// Chat: el módulo se carga al primer clic o en reposo, sin competir con los frames
+let chatApi = null;
+const loadChat = () => (chatApi ??= import('./chat.js').then((m) => m.initChat($('#chat-launcher'))));
+$('#chat-launcher').addEventListener('click', () => loadChat().then((c) => c.toggle()));
+(window.requestIdleCallback || ((f) => setTimeout(f, 3000)))(() => loadChat(), { timeout: 8000 });
+
 // Punto de recorte del retrato
 document.documentElement.style.setProperty('--photo-position', CONFIG.PHOTO_POSITION);
 

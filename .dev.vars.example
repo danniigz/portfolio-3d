@@ -1,0 +1,4 @@
+# Copia este archivo como .dev.vars (ignorado por git) y rellena la clave
+OPENAI_API_KEY=
+# 1 = respuestas simuladas, sin llamar a OpenAI ni gastar créditos
+CHAT_MOCK=1

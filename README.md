@@ -5,10 +5,17 @@ Portfolio de Daniel Rodríguez Machado: scroll-scrubbing sobre 280 frames de Ble
 ## Ejecutar en local
 
 ```bash
-npx --yes serve public -l 5173
+npx wrangler dev
 ```
 
-Abre http://localhost:5173. (En la fase 5 pasará a `wrangler dev`.)
+Abre http://localhost:8787. Sirve `public/` y el Worker con `POST /api/chat`.
+
+## Chat con IA
+
+- Secretos locales en `.dev.vars` (ignorado por git; plantilla en `.dev.vars.example`): `OPENAI_API_KEY=` con tu clave y `CHAT_MOCK=1` para respuestas simuladas sin gastar créditos (pon `0` o bórralo para usar OpenAI de verdad).
+- En producción la clave es un secreto del Worker: `npx wrangler secret put OPENAI_API_KEY`.
+- Variables en `wrangler.jsonc`: `OPENAI_MODEL`, `CHAT_ENABLED` (`"false"` apaga el chat) y `ALLOWED_ORIGINS`.
+- El asistente responde solo con [knowledge/dani.md](knowledge/dani.md): rellena los `TODO(Dani)`.
 
 Contacto: `CALENDLY_URL` y `WEB3FORMS_ACCESS_KEY` en `config.js`. `privacidad.html` es un borrador que debes revisar.
 
@@ -16,7 +23,7 @@ Parámetros de depuración: `?debug` (contador de frames/bitmaps), `?reduced=1` 
 
 ## Probar en el móvil
 
-Con el móvil en la misma wifi, abre `http://<IP-de-tu-PC>:5173` (`ipconfig` para ver la IP). `serve` ya escucha en la red local.
+Con el móvil en la misma wifi: `npx wrangler dev --ip 0.0.0.0` y abre `http://<IP-de-tu-PC>:8787` (`ipconfig` para ver la IP). El chat funciona porque el origen coincide con el host de la petición.
 
 ## Constantes
 

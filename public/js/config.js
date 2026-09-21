@@ -62,6 +62,16 @@ export const CONFIG = {
   WEB3FORMS_ACCESS_KEY: '251da710-573a-4074-98b7-5899748deb16',
   WEB3FORMS_URL: 'https://api.web3forms.com/submit',
 
+  // Chat con IA
+  CHAT_ENDPOINT: '/api/chat',
+  CHAT_MAX_CHARS: 500,
+  CHAT_QUICK: [
+    { label: '¿Qué experiencia tienes?', ask: '¿Qué experiencia tienes?' },
+    { label: '¿Cuáles son tus puntos fuertes?', ask: '¿Cuáles son tus puntos fuertes?' },
+    { label: '¿Qué quieres mejorar?', ask: '¿Qué quieres mejorar?' },
+    { label: '¿Cómo agendo una reunión?', action: 'calendly' },
+  ],
+
   // Retrato de Presentación: punto de recorte (object-position)
   PHOTO_POSITION: '50% 30%',
 

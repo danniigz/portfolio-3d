@@ -38,6 +38,9 @@ export const CONFIG = {
   FEATURED_IDS: ['construcciones-chamusinos', 'calcufacil', 'cineverse'],
   PROJECTS_URL: 'data/projects.json',
 
+  // Certificados
+  CERTIFICATES_URL: 'data/certificados.json',
+
   // GitHub
   GITHUB_USER: 'danniigz',
   GITHUB_DATA_URL: 'data/github.json',

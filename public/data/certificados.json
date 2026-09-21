@@ -1,0 +1,26 @@
+[
+  {
+    "id": "google-ai-essentials",
+    "name": "Google AI Essentials",
+    "issuer": "Coursera / Google",
+    "date": null,
+    "fileUrl": null,
+    "verifyUrl": "https://www.coursera.org/account/accomplishments/specialization/MFX50C4RXKHK"
+  },
+  {
+    "id": "iniciacion-ia-bigschool",
+    "name": "Certificado de Iniciación al Desarrollo con IA",
+    "issuer": "BIG School — jornadas \"Desarrollo con IA: de 0 a Producción\" (6h)",
+    "date": "2026-03-13",
+    "fileUrl": "assets/certificados/iniciacion-ia-bigschool.pdf",
+    "verifyUrl": null
+  },
+  {
+    "id": "master-bigschool",
+    "name": "Máster de Desarrollo con IA",
+    "issuer": "BIG School",
+    "date": "2026-08-17",
+    "fileUrl": "assets/certificados/master-bigschool.pdf",
+    "verifyUrl": null
+  }
+]

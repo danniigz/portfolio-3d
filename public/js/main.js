@@ -4,6 +4,7 @@ import { createLoader } from './loader.js';
 import { initScene } from './scene.js';
 import { runCounters, initCopyEmail } from './sections.js';
 import { renderFeatured, renderGrid } from './projects.js';
+import { renderCertificates } from './certificates.js';
 import { renderGithub } from './github.js';
 import { initContact } from './contact.js';
 
@@ -19,6 +20,9 @@ const sections = [...document.querySelectorAll('.stop')];
 renderFeatured($('#destacados')).catch(() => {});
 renderGrid($('#proyectos-grid'), $('#proyectos-filtros')).catch(() => {
   $('#proyectos-grid').textContent = 'No se pudieron cargar los proyectos.';
+});
+renderCertificates($('#certificados-lista')).catch(() => {
+  $('#certificados-lista').textContent = 'No se pudieron cargar los certificados.';
 });
 renderGithub($('#github-mapa'), $('#github-total'));
 initCopyEmail($('#copiar-email'));

@@ -76,7 +76,7 @@
   -webkit-mask: url(../assets/img/icono-chat.png) center / contain no-repeat;
   mask: url(../assets/img/icono-chat.png) center / contain no-repeat;
 }
-.ico-chat--lg { width: 28px; height: 28px; }
+.ico-chat--lg { width: 34px; height: 34px; }
 
 /* Invitaciones a preguntar a la IA */
 .ask { margin: 0; }

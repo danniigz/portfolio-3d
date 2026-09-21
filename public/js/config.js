@@ -51,12 +51,12 @@ export const CONFIG = {
     github: 'https://github.com/danniigz',
   },
 
-  // TODO(Dani): pon aquí tu URL real de Calendly
-  CALENDLY_URL: 'https://calendly.com/TODO-USUARIO/30min',
+  // URL de Calendly
+  CALENDLY_URL: 'https://calendly.com/daniroma05/reunion-con-daniel',
   // Colores del widget de Calendly (hex sin #), a juego con el tema oscuro
   CALENDLY_COLORS: { background_color: '0b0906', text_color: 'f6efe6', primary_color: 'ffc58a' },
-  // TODO(Dani): pon aquí tu clave pública de Web3Forms (no es un secreto)
-  WEB3FORMS_ACCESS_KEY: 'TODO-WEB3FORMS-ACCESS-KEY',
+  // Clave pública de Web3Forms (no es un secreto)
+  WEB3FORMS_ACCESS_KEY: '251da710-573a-4074-98b7-5899748deb16',
   WEB3FORMS_URL: 'https://api.web3forms.com/submit',
 
   // Contadores (ms)

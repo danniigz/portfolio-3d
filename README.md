@@ -10,7 +10,7 @@ npx --yes serve public -l 5173
 
 Abre http://localhost:5173. (En la fase 5 pasará a `wrangler dev`.)
 
-Contacto: `CALENDLY_URL` y `WEB3FORMS_ACCESS_KEY` en `config.js` (hoy son TODO). `privacidad.html` es un borrador que debes revisar.
+Contacto: `CALENDLY_URL` y `WEB3FORMS_ACCESS_KEY` en `config.js`. `privacidad.html` es un borrador que debes revisar.
 
 Parámetros de depuración: `?debug` (contador de frames/bitmaps), `?reduced=1` (fuerza el modo sin animación).
 

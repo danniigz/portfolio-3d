@@ -79,6 +79,20 @@ a { color: var(--accent); }
 .card h1 { font-size: clamp(3.25rem, 6.5vw, 5.5rem); line-height: 0.95; }
 .card h2 { font-size: clamp(2.5rem, 4vw, 3.5rem); }
 .card h3 { font: 500 1rem/1.3 var(--font-body); letter-spacing: 0; color: var(--accent); margin-top: 4px; }
+/* Presentación: retrato junto al texto */
+.card--about { width: min(680px, 100%); grid-template-columns: 240px 1fr; align-items: center; gap: 24px; }
+.about__text { display: grid; gap: 14px; }
+/* Escritorio: tarjeta abajo para no tapar las letras DRM de la pared */
+@media (min-width: 901px) {
+  #presentacion { align-items: flex-end; }
+  .card--about { width: min(620px, 100%); grid-template-columns: 220px 1fr; gap: 22px; }
+}
+.portrait { margin: 0; }
+.portrait img {
+  display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover;
+  object-position: var(--photo-position, 50% 30%);
+  border-radius: 14px; border: 1px solid var(--line); background: var(--surface);
+}
 .role { color: var(--accent); font: 500 1.125rem/1.3 var(--font-body); }
 .lead { font-size: clamp(1.0625rem, 1.5vw, 1.25rem); color: var(--text); }
 .muted { color: var(--muted); font-size: 0.9375rem; }
@@ -205,7 +219,7 @@ a { color: var(--accent); }
 /* Modo sin scrubbing (prefers-reduced-motion) */
 .static[hidden] { display: none; }
 .static-stop { position: relative; }
-.static-stop img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+.static-stop > img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
 .reduced .static-stop .stop {
   position: static; padding: var(--gutter); opacity: 1; visibility: visible; transform: none;
   pointer-events: auto; background: var(--bg);
@@ -221,6 +235,9 @@ a { color: var(--accent); }
     padding: 16px max(16px, env(safe-area-inset-right)) calc(16px + env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
   }
   .card, .card--hero, .card--wide, .card--strip { width: 100%; padding: 18px; gap: 10px; }
+  .card--about { grid-template-columns: 1fr; gap: 12px; }
+  .about__text { gap: 10px; }
+  .portrait img { width: 96px; }
   .card h1 { font-size: 3rem; }
   .card h2 { font-size: 2.25rem; }
   .featured { grid-template-columns: 1fr; gap: 8px; }
@@ -250,6 +267,7 @@ a { color: var(--accent); }
   .side-bottom { justify-content: center; align-items: flex-end; }
   .card, .card--hero { width: min(420px, 55%); }
   .card--wide { width: min(560px, 65%); }
+  .card--about { width: min(560px, 75%); grid-template-columns: 96px 1fr; align-items: start; }
   .card--strip { width: min(720px, 100%); }
   .card h1 { font-size: 2.25rem; }
   .card p, .lead { font-size: 0.875rem; }

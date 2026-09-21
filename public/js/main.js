@@ -26,6 +26,9 @@ initCopyEmail($('#copiar-email'));
 // Contacto: enlaces, Calendly y formulario
 initContact();
 
+// Punto de recorte del retrato
+document.documentElement.style.setProperty('--photo-position', CONFIG.PHOTO_POSITION);
+
 // Aplica lado del texto de cada parada
 sections.forEach((el, i) => el.classList.add(`side-${CONFIG.STOPS[i].side}`));
 

@@ -59,6 +59,9 @@ export const CONFIG = {
   WEB3FORMS_ACCESS_KEY: '251da710-573a-4074-98b7-5899748deb16',
   WEB3FORMS_URL: 'https://api.web3forms.com/submit',
 
+  // Retrato de Presentación: punto de recorte (object-position)
+  PHOTO_POSITION: '50% 30%',
+
   // Contadores (ms)
   COUNTER_MS: 700,
 };

@@ -46,6 +46,7 @@
 @keyframes chat-blink { 50% { opacity: 0.3; } }
 
 .chat__chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 16px 10px; margin: 0; list-style: none; }
+.chat__chips[hidden] { display: none; }
 .chat__chips .chip { min-height: 44px; font-size: 0.8125rem; }
 
 .chat__form { display: grid; grid-template-columns: 1fr auto; gap: 8px; padding: 10px 16px 14px; border-top: 1px solid var(--line); align-items: end; }

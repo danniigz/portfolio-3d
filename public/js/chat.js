@@ -138,6 +138,7 @@ export function initChat(launcher) {
     if (!question || busy) return;
     input.value = '';
     updateCount();
+    chips.hidden = true; // las preguntas rápidas solo se ofrecen al empezar
     addMsg('user', question);
     history.push({ role: 'user', content: question });
     setBusy(true);

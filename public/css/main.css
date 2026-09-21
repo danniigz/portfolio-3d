@@ -126,7 +126,7 @@ a { color: var(--accent); }
 .tags { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .tag {
   padding: 5px 11px; border: 1px solid var(--line); border-radius: 999px;
-  font: 400 0.75rem/1.4 var(--font-mono); color: var(--text); background: rgba(255, 197, 138, 0.08);
+  font: 400 0.8125rem/1.4 var(--font-mono); color: var(--text); background: rgba(255, 197, 138, 0.08);
 }
 
 /* Destacados */
@@ -174,10 +174,10 @@ a { color: var(--accent); }
 .project__media { aspect-ratio: 16 / 10; background: #000; display: grid; place-items: center; }
 .project__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .project__fallback { font: 400 2rem/1 var(--font-display); letter-spacing: 0.03em; color: var(--accent); padding: 16px; text-align: center; }
-.project__body { padding: 20px; display: grid; gap: 12px; align-content: start; flex: 1; }
+.project__body { padding: 20px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; flex: 1; }
 .project__name { font-size: 1.875rem; }
 .project__desc { color: var(--muted); font-size: 0.9375rem; }
-.project__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: auto; }
+.project__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: auto; padding-top: 4px; }
 .project__creds { flex-basis: 100%; color: var(--muted); font: 400 0.75rem/1.5 var(--font-mono); overflow-wrap: anywhere; }
 .project--soon { border-style: dashed; }
 .badge { justify-self: start; padding: 5px 12px; border-radius: 999px; background: rgba(255, 197, 138, 0.16); color: var(--accent); font: 500 0.8125rem var(--font-body); }
@@ -248,7 +248,8 @@ a { color: var(--accent); }
   .card h1 { font-size: 3rem; }
   .card h2 { font-size: 2.25rem; }
   .featured { grid-template-columns: 1fr; gap: 8px; }
-  .strip__head .btn { flex: 1 1 100%; }
+  .strip__head { flex-wrap: nowrap; }
+  .card--strip h2 { font-size: 1.625rem; }
   .actions .btn { flex: 1 1 calc(50% - 10px); }
   .actions #ir-formulario, .actions #abrir-calendly { white-space: normal; text-align: center; }
 }

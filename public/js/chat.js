@@ -70,7 +70,7 @@ export function initChat(launcher) {
   form.append(label, input, sendBtn, count);
 
   panel.append(head, notice, list, chips, form);
-  document.body.append(panel);
+  launcher.after(panel); // justo tras el lanzador: el orden de tabulación coincide con el visual
 
   // --- Mensajes ---
   const scrollDown = () => { list.scrollTop = list.scrollHeight; };
@@ -174,7 +174,7 @@ export function initChat(launcher) {
       addFallback('No hay conexión con el asistente. Inténtalo de nuevo o contacta con Dani directamente.');
     } finally {
       setBusy(false);
-      if (!panel.hidden) input.focus();
+      if (panel.classList.contains('is-open')) input.focus();
     }
   }
 
@@ -194,7 +194,11 @@ export function initChat(launcher) {
   });
 
   // --- Abrir / cerrar ---
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  let closeTimer = 0;
   function open() {
+    clearTimeout(closeTimer);
+    panel.classList.remove('is-closing');
     panel.hidden = false;
     panel.classList.add('is-open');
     launcher.setAttribute('aria-expanded', 'true');
@@ -202,10 +206,14 @@ export function initChat(launcher) {
     input.focus();
   }
   function closePanel() {
-    panel.hidden = true;
-    panel.classList.remove('is-open');
     launcher.setAttribute('aria-expanded', 'false');
     launcher.focus();
+    panel.classList.remove('is-open');
+    // Salida breve (120 ms); sin movimiento reducido se oculta al instante
+    const hide = () => { panel.hidden = true; panel.classList.remove('is-closing'); };
+    if (reducedMotion.matches) return hide();
+    panel.classList.add('is-closing');
+    closeTimer = setTimeout(hide, 120);
   }
   close.addEventListener('click', closePanel);
   panel.addEventListener('keydown', (e) => {

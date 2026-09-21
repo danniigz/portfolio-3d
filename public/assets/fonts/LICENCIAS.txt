@@ -1,0 +1,2 @@
+Bebas Neue (Ryoichi Tsunekawa / Dharma Type), DM Sans (Colophon Foundry / Google) y JetBrains Mono (JetBrains): SIL Open Font License 1.1, https://openfontlicense.org
+Subconjunto latin descargado de Google Fonts (fonts.gstatic.com). Pesos: Bebas Neue 400, DM Sans 400-500, JetBrains Mono 400.

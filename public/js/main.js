@@ -10,6 +10,7 @@ import { initContact } from './contact.js';
 
 const params = new URLSearchParams(location.search);
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches || params.has('reduced');
+const modeLink = document.querySelector('#modo-estatico');
 const isMobile = window.innerWidth <= CONFIG.MOBILE_MAX_WIDTH;
 const folder = isMobile ? CONFIG.FOLDERS.mobile : CONFIG.FOLDERS.desktop;
 
@@ -18,7 +19,7 @@ const sections = [...document.querySelectorAll('.stop')];
 
 // Contenido dinámico (común a ambos modos)
 renderFeatured($('#destacados')).catch(() => {});
-renderGrid($('#proyectos-grid'), $('#proyectos-filtros')).catch(() => {
+renderGrid($('#proyectos-grid'), $('#proyectos-filtros'), $('#proyectos-estado')).catch(() => {
   $('#proyectos-grid').textContent = 'No se pudieron cargar los proyectos.';
 });
 renderCertificates($('#certificados-lista')).catch(() => {
@@ -44,6 +45,30 @@ document.documentElement.style.setProperty('--photo-position', CONFIG.PHOTO_POSI
 // Aplica lado del texto de cada parada
 sections.forEach((el, i) => el.classList.add(`side-${CONFIG.STOPS[i].side}`));
 
+// Tabulación a lo largo de todo el scroll: las paradas inactivas están ocultas, así que Tab
+// desde el último control de una parada salta a la siguiente que tenga controles (y Mayús+Tab al revés)
+const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled])';
+function initKeyboardFlow(scene) {
+  const stopControls = (el) => [...el.querySelectorAll(FOCUSABLE)].filter((c) => !c.closest('[hidden]'));
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab' || e.ctrlKey || e.altKey || e.metaKey) return;
+    const from = sections.findIndex((s) => s.contains(e.target));
+    if (from < 0) return;
+    const own = stopControls(sections[from]);
+    const edge = e.shiftKey ? own[0] : own[own.length - 1];
+    if (e.target !== edge) return;
+    const step = e.shiftKey ? -1 : 1;
+    for (let j = from + step; j >= 0 && j < sections.length; j += step) {
+      const next = stopControls(sections[j]);
+      if (!next.length) continue;
+      e.preventDefault();
+      scene.goToStop(j);
+      next[e.shiftKey ? next.length - 1 : 0].focus({ preventScroll: true });
+      return;
+    }
+  });
+}
+
 function hideLoader() {
   const l = $('#cargando');
   l.classList.add('is-done');
@@ -52,6 +77,9 @@ function hideLoader() {
 }
 
 if (reduced) {
+  // Con ?reduced=1 el enlace vuelve a la versión animada; con la preferencia del sistema ya no hace falta
+  if (params.has('reduced')) { modeLink.textContent = 'Ver versión animada'; modeLink.href = location.pathname; }
+  else modeLink.remove();
   // Sin scrubbing: 8 frames fijos con su texto
   document.documentElement.classList.add('reduced');
   const host = $('#estatico');
@@ -85,13 +113,19 @@ if (reduced) {
   const bar = $('#cargando-barra');
   const pct = $('#cargando-pct');
   const progress = $('#cargando [role=progressbar]');
+  const status = $('#estado-carga');
+  let announced = 0;
 
   loader.preload((p) => {
     const v = Math.round(p * 100);
     bar.style.transform = `scaleX(${p})`;
     pct.textContent = `${v}%`;
     progress.setAttribute('aria-valuenow', v);
+    // Lectores de pantalla: un aviso cada 25 %
+    const step = Math.floor(v / 25) * 25;
+    if (step > announced && step < 100) { announced = step; status.textContent = `Cargando la escena: ${step} %`; }
   }).then((phase2) => {
+    status.textContent = 'Escena lista. Desplaza para recorrer el despacho.';
     scene = initScene({
       canvas,
       container: $('#scroll'),
@@ -101,6 +135,7 @@ if (reduced) {
     });
     hideLoader();
     phase2();
+    initKeyboardFlow(scene);
     if (params.has('debug')) {
       window.__scene = scene;
       const box = document.createElement('pre');

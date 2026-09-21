@@ -58,6 +58,7 @@ export function initScene({ canvas, container, sections, loader, onReveal }) {
 
   function draw(bmp, frame) {
     const cw = canvas.width, ch = canvas.height;
+    ctx.imageSmoothingQuality = 'high'; // reescalado más fino (redimensionar el canvas lo reinicia)
     const s = CONFIG.FIT === 'contain'
       ? Math.min(cw / bmp.width, ch / bmp.height)
       : Math.max(cw / bmp.width, ch / bmp.height);
@@ -105,6 +106,15 @@ export function initScene({ canvas, container, sections, loader, onReveal }) {
 
   const kick = () => { if (!raf) raf = requestAnimationFrame(tick); };
 
+  // Teclado: salta al centro del tramo fijo de una parada y la muestra al instante (sin esperar al scroll)
+  function goToStop(i) {
+    const y = i * period + H / 2;
+    window.scrollTo({ top: window.scrollY + container.getBoundingClientRect().top + y, behavior: 'instant' });
+    updateSections(y);
+    lastY = y;
+    kick();
+  }
+
   let lastW = window.innerWidth, lastH = window.innerHeight;
   window.addEventListener('scroll', kick, { passive: true });
   window.addEventListener('resize', () => {
@@ -119,5 +129,5 @@ export function initScene({ canvas, container, sections, loader, onReveal }) {
   layout();
   sections.forEach((el) => { el.style.visibility = 'hidden'; });
   kick();
-  return { kick, stats: () => ({ frame: drawn, current: +current.toFixed(1), ...loader.stats() }) };
+  return { kick, goToStop, stats: () => ({ frame: drawn, current: +current.toFixed(1), ...loader.stats() }) };
 }

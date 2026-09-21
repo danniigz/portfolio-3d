@@ -10,6 +10,8 @@ colors:
   accent-2: "#ffa95c"
   on-accent: "#1a1206"
   error: "#ffb4ab"
+  black: "#000000"
+  white: "#ffffff"
 typography:
   display:
     fontFamily: "Bebas Neue, Arial Narrow, sans-serif"
@@ -27,6 +29,8 @@ typography:
     fontSize: "0.75rem"
     fontWeight: 400
 rounded:
+  cell: "2px"
+  xs: "4px"
   sm: "10px"
   md: "16px"
   pill: "999px"
@@ -39,7 +43,7 @@ components:
     backgroundColor: "{colors.accent}"
     textColor: "{colors.on-accent}"
     rounded: "{rounded.sm}"
-    padding: "10px 18px"
+    padding: "12px 20px"
   card:
     backgroundColor: "{colors.bg}"
     textColor: "{colors.text}"
@@ -77,6 +81,8 @@ Paleta cálida y contenida: negros marrones, crema y ámbar.
 
 ## Typography
 
+Escala cerrada, definida como tokens en `:root` (`--fs-*`, en px): texto 12 · 14 · 16 · 18 · 20; titulares (Bebas Neue) 24 · 32 · 40 · 48 · 56 · 72 · 88. Interlineado: 1.3 (títulos y etiquetas), 1.5 (texto corto, formularios, chat), 1.6 (cuerpo). Ningún tamaño fuera de la escala.
+
 **Display:** Bebas Neue. **Body:** DM Sans. **Label:** JetBrains Mono.
 
 ### Hierarchy
@@ -91,11 +97,11 @@ Escena: tarjeta anclada a un lado (o abajo) según el motivo de cada frame; en m
 
 ## Elevation & Depth
 
-Plano. La profundidad la dan el frame de fondo, la opacidad de la tarjeta y el borde ámbar al 28 %. Sin sombras.
+Plano. La profundidad la dan el frame de fondo, la opacidad de la tarjeta y el borde ámbar al 28 % (50 % en hover y en el panel del chat). Sin sombras.
 
 ## Shapes
 
-Esquinas de 10 px en botones y campos, 16 px en tarjetas, píldora en tags y chips. Bordes de 1px ámbar tenue.
+Esquinas de 10 px en botones, campos y elementos dentro de tarjetas; 16 px en tarjetas, paneles y burbujas del chat; 4 px en marcas pequeñas (cola de burbuja, barra de carga); 2 px en las celdas del mapa de GitHub; píldora en tags y chips. Bordes de 1px ámbar tenue.
 
 ## Components
 
@@ -113,7 +119,7 @@ Fondo negro, borde ámbar al 50 %, foco con contorno ámbar de 3px, error en #ff
 
 ### Do:
 - **Do** comprobar contraste AA del texto sobre cada frame de parada.
-- **Do** animar solo transform y opacity, < 300 ms, ease-out.
+- **Do** animar solo transform y opacity, < 300 ms, ease-out, con los tokens `--dur-exit` (120 ms), `--dur-hover` (160 ms) y `--dur-enter` (200 ms) y la curva `--ease-out`; la única excepción son los cambios de color de fondo/borde en hover (160 ms).
 ### Don't:
 - **Don't** añadir colores de acento ni sombras difusas.
 - **Don't** quitar el scrub ni los fades de sección.

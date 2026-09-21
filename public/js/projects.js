@@ -93,9 +93,10 @@ export async function renderFeatured(container) {
 }
 
 // Sección completa con filtro por tecnología
-export async function renderGrid(grid, filters) {
+export async function renderGrid(grid, filters, status) {
   const all = await loadProjects();
   grid.replaceChildren(...all.map(card));
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const techs = [...new Set(all.flatMap((p) => p.tech))].sort((a, b) => a.localeCompare(b));
   const chips = ['Todos', ...techs].map((t) => {
@@ -104,9 +105,15 @@ export async function renderGrid(grid, filters) {
     b.setAttribute('aria-pressed', t === 'Todos' ? 'true' : 'false');
     b.addEventListener('click', () => {
       filters.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', String(c === b)));
+      let shown = 0;
       grid.querySelectorAll('.project').forEach((art) => {
         art.hidden = t !== 'Todos' && !art.dataset.tech.split('|').includes(t);
+        art.classList.remove('is-in');
+        if (art.hidden) return;
+        shown++;
+        if (!reduced) { void art.offsetWidth; art.classList.add('is-in'); } // reinicia la entrada
       });
+      if (status) status.textContent = t === 'Todos' ? `Mostrando los ${shown} proyectos` : `Filtro ${t}: ${shown} de ${all.length} proyectos`;
     });
     return b;
   });

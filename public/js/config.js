@@ -75,6 +75,6 @@ export const CONFIG = {
   // Retrato de Presentación: punto de recorte (object-position)
   PHOTO_POSITION: '50% 30%',
 
-  // Contadores (ms)
-  COUNTER_MS: 700,
+  // Contadores (ms): easing ease-out pronunciado, la mayor parte del recorrido cae en los primeros ~250 ms
+  COUNTER_MS: 600,
 };

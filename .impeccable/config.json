@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "public/index.html"
+        ],
+        "createdAt": "2026-09-21T14:00:29.958Z",
+        "reason": "Claude verified in audit: .stage is the full-bleed sticky canvas container; cards are inset by .stop padding, so no text sits against its edge"
+      }
+    ]
+  }
+}

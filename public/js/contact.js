@@ -136,8 +136,8 @@ export function initContact() {
   // "Escribirme un mensaje": baja al formulario y mueve el foco al primer campo
   $('#ir-formulario').addEventListener('click', (e) => {
     e.preventDefault();
-    const smooth = !matchMedia('(prefers-reduced-motion: reduce)').matches && !location.search.includes('reduced');
-    $('#contacto').scrollIntoView({ behavior: smooth ? 'smooth' : 'auto' });
+    // Salto directo, igual que "Ver los 9 proyectos": un scroll suave recorrería los frames de la escena
+    $('#contacto').scrollIntoView();
     $('#f-nombre').focus({ preventScroll: true });
   });
 

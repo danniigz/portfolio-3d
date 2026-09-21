@@ -1,7 +1,8 @@
 // Comportamiento de las secciones: contadores y copiar email
 import { CONFIG } from './config.js';
 
-const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+// Aproxima la curva --ease-out del CSS (cubic-bezier .23,1,.32,1)
+const easeOut = (t) => 1 - Math.pow(1 - t, 5);
 
 // Anima los contadores de la parada de cifras (solo transform/opacity en UI; aquí solo texto)
 export function runCounters(root, animate = true) {

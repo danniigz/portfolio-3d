@@ -26,7 +26,7 @@
   {
     "id": "demo-barberia",
     "name": "Demo Barbería",
-    "description": "TODO(Dani): revisa este nombre y esta descripción, los propuso Claude Code y quedó pendiente de tu aprobación. Landing de demostración para una barbería: reserva de citas, servicios y galería, con estética oscura.",
+    "description": "Landing de demostración para una barbería: reserva de citas, servicios y galería, con estética oscura.",
     "tech": ["HTML", "CSS"],
     "demoUrl": "https://zonacerodemo.netlify.app",
     "repoUrl": null,

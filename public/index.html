@@ -9,18 +9,22 @@
   <meta property="og:title" content="Daniel Rodríguez Machado · Desarrollador web freelance">
   <meta property="og:description" content="Frontend que enamora, backend que funciona. Recorre mi despacho en 3D.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="frames/1280/frame_0001.webp">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <!-- TODO(Dani): sustituir <tu-subdominio> por el real tras el deploy -->
+  <meta property="og:image" content="https://portfolio-3d.<tu-subdominio>.workers.dev/frames/1280/frame_0001.webp">
+  <link rel="preload" href="assets/fonts/bebas-neue-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/dm-sans-400-500-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/chat.css">
   <script type="module" src="js/main.js"></script>
 </head>
 <body>
+  <!-- Primer enlace: quien no puede seguir el scroll (lector de pantalla, teclado) obtiene todo el contenido en una sola página -->
+  <a id="modo-estatico" class="skip" href="?reduced=1">Ver versión sin animación</a>
   <a class="skip" href="#proyectos">Saltar a proyectos</a>
 
-  <div id="cargando" class="loader" aria-live="polite">
+  <!-- Aviso para lectores de pantalla: solo cada 25 % y al terminar, no en cada 1 % -->
+  <p id="estado-carga" class="visually-hidden" role="status" aria-live="polite"></p>
+  <div id="cargando" class="loader">
     <p class="loader__title">Cargando la escena…</p>
     <div class="loader__track" role="progressbar" aria-label="Progreso de carga" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
       <div id="cargando-barra" class="loader__bar"></div>
@@ -150,6 +154,7 @@
       <div class="page-section__inner">
         <h2 id="t-proyectos">Ideas que cobran vida</h2>
         <div id="proyectos-filtros" class="chips" role="group" aria-label="Filtrar por tecnología"></div>
+        <p id="proyectos-estado" class="visually-hidden" role="status" aria-live="polite"></p>
         <div id="proyectos-grid" class="grid"></div>
       </div>
     </section>
@@ -184,7 +189,7 @@
               <input type="checkbox" name="botcheck" class="honeypot" tabindex="-1" aria-hidden="true" autocomplete="off">
               <button id="f-enviar" class="btn btn--primary" type="submit">Enviar mensaje</button>
               <p id="f-estado" class="form__status" role="status" aria-live="polite"></p>
-              <p class="muted">Usaré tus datos solo para responderte. <a href="privacidad.html">Política de privacidad</a></p>
+              <p class="muted">Todos los campos son obligatorios. Usaré tus datos solo para responderte. <a href="privacidad.html">Política de privacidad</a></p>
             </form>
           </div>
           <div class="contact-col">

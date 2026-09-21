@@ -161,6 +161,44 @@ a { color: var(--accent); }
 .project--soon { border-style: dashed; }
 .badge { justify-self: start; padding: 5px 12px; border-radius: 999px; background: rgba(255, 197, 138, 0.16); color: var(--accent); font: 500 0.8125rem var(--font-body); }
 
+/* Contacto en la escena */
+.contact-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; font-size: 0.9375rem; }
+.contact-list li { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; min-height: 32px; }
+.contact-link { color: var(--accent); text-underline-offset: 3px; overflow-wrap: anywhere; }
+
+/* Sección #contacto */
+.page-section--alt { background: var(--surface); border-top: 1px solid var(--line); }
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: clamp(28px, 5vw, 64px); margin-top: 8px; align-items: start; }
+.contact-col { display: grid; gap: 14px; align-content: start; }
+.contact-col h3 { font-size: 1.75rem; color: var(--text); }
+.form { display: grid; gap: 16px; }
+.field { display: grid; gap: 6px; }
+.field label { font: 500 0.9375rem var(--font-body); }
+.field input, .field textarea {
+  width: 100%; min-height: 48px; padding: 12px 14px; border-radius: 10px; color: var(--text);
+  background: var(--bg); border: 1px solid rgba(255, 197, 138, 0.5); font: 400 1rem/1.5 var(--font-body);
+}
+.field textarea { resize: vertical; min-height: 128px; }
+.field input:focus-visible, .field textarea:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.field [aria-invalid='true'] { border-color: #ff8a80; }
+.field__err { color: #ffb4ab; font-size: 0.875rem; }
+.honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.form .btn { justify-self: start; }
+.btn:disabled { opacity: 0.6; cursor: progress; }
+.form__status { min-height: 1.5em; font-size: 0.9375rem; }
+.form__status.is-ok { color: var(--accent); }
+.form__status.is-error { color: #ffb4ab; }
+.calendly { min-width: 320px; min-height: 700px; border-radius: 16px; overflow: hidden; background: #fff; border: 1px solid var(--line); }
+.calendly[hidden] { display: none; }
+#contacto { scroll-margin-top: 0; }
+
+/* Página de privacidad */
+.legal { max-width: 720px; margin: 0 auto; padding: clamp(48px, 8vw, 96px) var(--gutter); display: grid; gap: 14px; }
+.legal h1 { font-size: clamp(3rem, 6vw, 4.5rem); }
+.legal h2 { font-size: 2rem; margin-top: 16px; }
+.legal ul { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; }
+.legal .draft { padding: 12px 16px; border: 1px dashed var(--accent); border-radius: 10px; color: var(--muted); }
+
 .footer { padding: 32px var(--gutter); border-top: 1px solid var(--line); color: var(--muted); font-size: 0.875rem; text-align: center; }
 .debug { position: fixed; left: 8px; top: 8px; z-index: 90; margin: 0; padding: 6px 8px; background: #000; color: #0f0; font: 12px var(--font-mono); }
 
@@ -188,6 +226,7 @@ a { color: var(--accent); }
   .featured { grid-template-columns: 1fr; gap: 8px; }
   .strip__head .btn { flex: 1 1 100%; }
   .actions .btn { flex: 1 1 calc(50% - 10px); }
+  .actions #ir-formulario, .actions #abrir-calendly { white-space: normal; text-align: center; }
 }
 
 /* Pantallas bajas (móviles pequeños): compacta la tarjeta en vez de recortarla */
@@ -230,4 +269,5 @@ a { color: var(--accent); }
 
 @media (prefers-reduced-motion: reduce) {
   .btn, .chip, .loader { transition: none; }
+  html { scroll-behavior: auto; }
 }

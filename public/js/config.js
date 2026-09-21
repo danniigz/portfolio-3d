@@ -45,9 +45,19 @@ export const CONFIG = {
   // Contacto
   CONTACT: {
     email: 'drodriguez.daw@gmail.com',
-    linkedin: 'https://www.linkedin.com/in/daniel-rodriguez-machado-410313346/',
+    phone: '+34674904987',
+    phoneLabel: '+34 674 90 49 87',
+    linkedin: 'https://www.linkedin.com/in/daniel-rodriguez-machado/',
     github: 'https://github.com/danniigz',
   },
+
+  // TODO(Dani): pon aquí tu URL real de Calendly
+  CALENDLY_URL: 'https://calendly.com/TODO-USUARIO/30min',
+  // Colores del widget de Calendly (hex sin #), a juego con el tema oscuro
+  CALENDLY_COLORS: { background_color: '0b0906', text_color: 'f6efe6', primary_color: 'ffc58a' },
+  // TODO(Dani): pon aquí tu clave pública de Web3Forms (no es un secreto)
+  WEB3FORMS_ACCESS_KEY: 'TODO-WEB3FORMS-ACCESS-KEY',
+  WEB3FORMS_URL: 'https://api.web3forms.com/submit',
 
   // Contadores (ms)
   COUNTER_MS: 700,

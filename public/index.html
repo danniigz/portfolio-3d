@@ -113,13 +113,16 @@
         <!-- 8 · Contacto -->
         <section class="stop" id="contacto-escena" aria-labelledby="t-contacto">
           <div class="card">
-            <h2 id="t-contacto">Hablemos</h2>
+            <h2 id="t-contacto">Contacto</h2>
             <div class="actions">
-              <a id="link-email" class="btn btn--primary" href="#">drodriguez.daw@gmail.com</a>
-              <button id="copiar-email" class="btn" type="button"><span>Copiar email</span></button>
-              <a id="link-linkedin" class="btn" href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-              <a id="link-github" class="btn" href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <button id="abrir-calendly" class="btn btn--primary" type="button">Agendar reunión</button>
+              <a id="ir-formulario" class="btn" href="#formulario">Escribirme un mensaje</a>
             </div>
+            <ul class="contact-list">
+              <li><a id="link-email" class="contact-link" href="#">drodriguez.daw@gmail.com</a> <button id="copiar-email" class="btn btn--small" type="button"><span>Copiar</span></button></li>
+              <li><a id="link-phone" class="contact-link" href="#">+34 674 90 49 87</a></li>
+              <li><a id="link-linkedin" class="contact-link" href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a> · <a id="link-github" class="contact-link" href="#" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            </ul>
           </div>
         </section>
       </div>
@@ -134,6 +137,52 @@
         <h2 id="t-proyectos">Ideas que cobran vida</h2>
         <div id="proyectos-filtros" class="chips" role="group" aria-label="Filtrar por tecnología"></div>
         <div id="proyectos-grid" class="grid"></div>
+      </div>
+    </section>
+
+    <!-- Contacto ampliado: formulario y reserva de reunión -->
+    <section id="contacto" class="page-section page-section--alt" aria-labelledby="t-hablemos">
+      <div class="page-section__inner">
+        <h2 id="t-hablemos">Hablemos</h2>
+        <div class="contact-grid">
+          <div class="contact-col">
+            <h3 id="formulario-titulo">Escríbeme un mensaje</h3>
+            <form id="formulario" class="form" novalidate aria-labelledby="formulario-titulo">
+              <div class="field">
+                <label for="f-nombre">Nombre</label>
+                <input id="f-nombre" name="name" type="text" autocomplete="name" required aria-describedby="f-nombre-err">
+                <p id="f-nombre-err" class="field__err" hidden></p>
+              </div>
+              <div class="field">
+                <label for="f-email">Email</label>
+                <input id="f-email" name="email" type="email" autocomplete="email" required aria-describedby="f-email-err">
+                <p id="f-email-err" class="field__err" hidden></p>
+              </div>
+              <div class="field">
+                <label for="f-mensaje">Mensaje</label>
+                <textarea id="f-mensaje" name="message" rows="5" required aria-describedby="f-mensaje-err"></textarea>
+                <p id="f-mensaje-err" class="field__err" hidden></p>
+              </div>
+              <input type="checkbox" name="botcheck" class="honeypot" tabindex="-1" aria-hidden="true" autocomplete="off">
+              <button id="f-enviar" class="btn btn--primary" type="submit">Enviar mensaje</button>
+              <p id="f-estado" class="form__status" role="status" aria-live="polite"></p>
+              <p class="muted">Usaré tus datos solo para responderte. <a href="privacidad.html">Política de privacidad</a></p>
+            </form>
+          </div>
+          <div class="contact-col">
+            <h3>Reserva una reunión</h3>
+            <p class="muted">Media hora por videollamada para contarme tu proyecto.</p>
+            <div class="actions">
+              <button id="ver-disponibilidad" class="btn btn--primary" type="button">Ver disponibilidad</button>
+              <a id="calendly-enlace" class="btn" href="#" target="_blank" rel="noopener noreferrer">Abrir Calendly en otra pestaña</a>
+            </div>
+            <div id="calendly-inline" class="calendly" hidden></div>
+            <ul class="contact-list">
+              <li>Email: <a id="c-email" class="contact-link" href="#">drodriguez.daw@gmail.com</a></li>
+              <li>Teléfono: <a id="c-phone" class="contact-link" href="#">+34 674 90 49 87</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   </main>

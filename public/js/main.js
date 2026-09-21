@@ -5,6 +5,7 @@ import { initScene } from './scene.js';
 import { runCounters, initCopyEmail } from './sections.js';
 import { renderFeatured, renderGrid } from './projects.js';
 import { renderGithub } from './github.js';
+import { initContact } from './contact.js';
 
 const params = new URLSearchParams(location.search);
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches || params.has('reduced');
@@ -22,10 +23,8 @@ renderGrid($('#proyectos-grid'), $('#proyectos-filtros')).catch(() => {
 renderGithub($('#github-mapa'), $('#github-total'));
 initCopyEmail($('#copiar-email'));
 
-// Enlaces de contacto desde la configuración
-$('#link-email').href = `mailto:${CONFIG.CONTACT.email}`;
-$('#link-linkedin').href = CONFIG.CONTACT.linkedin;
-$('#link-github').href = CONFIG.CONTACT.github;
+// Contacto: enlaces, Calendly y formulario
+initContact();
 
 // Aplica lado del texto de cada parada
 sections.forEach((el, i) => el.classList.add(`side-${CONFIG.STOPS[i].side}`));

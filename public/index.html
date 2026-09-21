@@ -29,7 +29,7 @@
   </div>
 
   <button id="chat-launcher" class="chat-launcher" type="button" aria-expanded="false" aria-controls="chat-panel" aria-label="Abrir el asistente de IA">
-    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.5-4.7A8 8 0 1 1 21 12z"/></svg>
+    <span class="ico-chat ico-chat--lg" aria-hidden="true"></span>
   </button>
 
   <main>
@@ -44,6 +44,7 @@
             <h1 id="t-hero">Daniel Rodríguez Machado</h1>
             <p class="role">Desarrollador web freelance</p>
             <p class="lead">Desarrollo aplicaciones web de principio a fin, integrando IA en cada etapa del proceso. Frontend que enamora, backend que funciona.</p>
+            <p class="ask"><button class="btn btn--small" type="button" data-open-chat><span class="ico-chat" aria-hidden="true"></span>Pregunta a mi asistente de IA</button></p>
             <p class="scroll-hint">Desplaza para recorrer el despacho <span aria-hidden="true">↓</span></p>
           </div>
         </section>
@@ -157,6 +158,10 @@
     <section id="contacto" class="page-section page-section--alt" aria-labelledby="t-hablemos">
       <div class="page-section__inner">
         <h2 id="t-hablemos">Hablemos</h2>
+        <div class="ask-strip">
+          <p><strong>¿Una duda rápida antes de escribirme?</strong> Pregunta a mi asistente de IA: responde en pocas líneas sobre mi experiencia, mis puntos fuertes y cómo trabajo.</p>
+          <button class="btn" type="button" data-open-chat><span class="ico-chat" aria-hidden="true"></span>Hacer una pregunta</button>
+        </div>
         <div class="contact-grid">
           <div class="contact-col">
             <h3 id="formulario-titulo">Escríbeme un mensaje</h3>

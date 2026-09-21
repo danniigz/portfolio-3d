@@ -34,6 +34,8 @@ initContact();
 let chatApi = null;
 const loadChat = () => (chatApi ??= import('./chat.js').then((m) => m.initChat($('#chat-launcher'))));
 $('#chat-launcher').addEventListener('click', () => loadChat().then((c) => c.toggle()));
+// Botones del portfolio que invitan a preguntar a la IA
+document.querySelectorAll('[data-open-chat]').forEach((b) => b.addEventListener('click', () => loadChat().then((c) => c.open())));
 (window.requestIdleCallback || ((f) => setTimeout(f, 3000)))(() => loadChat(), { timeout: 8000 });
 
 // Punto de recorte del retrato

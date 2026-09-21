@@ -69,3 +69,20 @@
   .chat.is-open, .msg--typing::after { animation: none; }
   .chat-launcher { transition: none; }
 }
+
+/* Icono del chat: silueta con el color del texto (mask) */
+.ico-chat {
+  display: inline-block; flex: none; width: 1.25em; height: 1.25em; background-color: currentColor;
+  -webkit-mask: url(../assets/img/icono-chat.png) center / contain no-repeat;
+  mask: url(../assets/img/icono-chat.png) center / contain no-repeat;
+}
+.ico-chat--lg { width: 28px; height: 28px; }
+
+/* Invitaciones a preguntar a la IA */
+.ask { margin: 0; }
+.ask-strip {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px 24px; flex-wrap: wrap;
+  padding: 16px 20px; border: 1px solid var(--line); border-radius: 14px; background: rgba(255, 197, 138, 0.06);
+}
+.ask-strip p { max-width: 62ch; color: var(--muted); }
+.ask-strip strong { color: var(--text); font-weight: 500; }

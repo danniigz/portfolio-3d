@@ -34,8 +34,9 @@ function cleanMessages(raw) {
   const msgs = raw
     .filter((m) => m && (m.role === 'user' || m.role === 'assistant')) // descarta system y cualquier otro rol
     .map((m) => ({ role: m.role, content: typeof m.content === 'string' ? m.content.trim() : '' }));
-  if (!msgs.length || msgs.some((m) => !m.content || m.content.length > MAX_CHARS)) return null;
-  if (msgs[msgs.length - 1].role !== 'user') return null;
+  if (!msgs.length || msgs.some((m) => !m.content)) return null;
+  const last = msgs[msgs.length - 1];
+  if (last.role !== 'user' || last.content.length > MAX_CHARS) return null;
   return msgs.slice(-(MAX_PREVIOUS + 1));
 }
 

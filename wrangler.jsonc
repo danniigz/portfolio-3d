@@ -2,7 +2,7 @@
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "portfolio-3d",
   "main": "src/worker.js",
-  "compatibility_date": "2026-09-01",
+  "compatibility_date": "2026-09-22",
   // La base de conocimiento (.md) se importa como texto en el bundle
   "rules": [{ "type": "Text", "globs": ["**/*.md"], "fallthrough": true }],
   "assets": {

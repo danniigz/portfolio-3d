@@ -1,2 +1,35 @@
 /frames/*
   Cache-Control: public, max-age=31536000, immutable
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/css/*
+  Cache-Control: public, max-age=300
+
+/js/*
+  Cache-Control: public, max-age=300
+
+/data/github.json
+  Cache-Control: public, max-age=3600
+
+/data/projects.json
+  Cache-Control: public, max-age=3600
+
+/data/certificados.json
+  Cache-Control: public, max-age=3600
+
+/assets/docs/*
+  Cache-Control: public, max-age=86400
+
+/assets/certificados/*
+  Cache-Control: public, max-age=86400
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), camera=(), microphone=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://assets.calendly.com; style-src 'self' https://assets.calendly.com 'unsafe-inline'; img-src 'self' data: https://*.calendly.com; font-src 'self'; connect-src 'self' https://api.web3forms.com https://calendly.com https://api.calendly.com; frame-src https://calendly.com; base-uri 'self'; form-action 'self' https://api.web3forms.com; frame-ancestors 'none'

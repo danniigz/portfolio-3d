@@ -14,7 +14,7 @@ Abre http://localhost:8787. Sirve `public/` y el Worker con `POST /api/chat`.
 
 - Secretos locales en `.dev.vars` (ignorado por git; plantilla en `.dev.vars.example`): `OPENAI_API_KEY=` con tu clave y `CHAT_MOCK=1` para respuestas simuladas sin gastar créditos (pon `0` o bórralo para usar OpenAI de verdad).
 - En producción la clave es un secreto del Worker: `npx wrangler secret put OPENAI_API_KEY`.
-- Variables en `wrangler.jsonc`: `OPENAI_MODEL`, `CHAT_ENABLED` (`"false"` apaga el chat) y `ALLOWED_ORIGINS`.
+- Variables en `wrangler.jsonc`: `OPENAI_MODEL`, `CHAT_ENABLED` (`"false"` apaga el chat), `ALLOWED_ORIGINS` y `CHAT_DAILY_BUDGET` (tope de peticiones reales a OpenAI por día, sumando todas las IPs; protege frente a abuso repartido entre muchas IPs, ya que el rate limit de `CHAT_LIMITER` es por IP). El contador vive en el KV `CHAT_BUDGET` y se reinicia solo cada día (clave `dia:YYYY-MM-DD`).
 - El asistente responde solo con [knowledge/dani.md](knowledge/dani.md): rellena los `TODO(Dani)`.
 
 Contacto: `CALENDLY_URL` y `WEB3FORMS_ACCESS_KEY` en `config.js`. `privacidad.html` es un borrador que debes revisar.

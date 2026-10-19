@@ -117,6 +117,18 @@ function relay(upstream) {
   );
 }
 
+// Tope global diario (todas las IPs juntas) para acotar el gasto si abusan con muchas IPs distintas
+async function dentroDePresupuesto(env) {
+  const limite = Number(env.CHAT_DAILY_BUDGET) || 0;
+  if (!limite) return true;
+  const clave = `dia:${new Date().toISOString().slice(0, 10)}`;
+  const actual = Number((await env.CHAT_BUDGET.get(clave)) || '0');
+  if (actual >= limite) return false;
+  // TTL de 2 días: limpia solo claves de días pasados sin tarea aparte
+  await env.CHAT_BUDGET.put(clave, String(actual + 1), { expirationTtl: 172800 });
+  return true;
+}
+
 async function handleChat(request, env, url) {
   if (request.method !== 'POST') return fail(405, 'Método no permitido.', {}, { Allow: 'POST' });
   if (env.CHAT_ENABLED === 'false') return fail(503, 'El chat está desactivado por ahora.', { disabled: true });
@@ -144,6 +156,11 @@ async function handleChat(request, env, url) {
 
   if (env.CHAT_MOCK === '1') return mockStream();
   if (!env.OPENAI_API_KEY) return fail(503, 'El asistente no está disponible ahora mismo.');
+
+  if (env.CHAT_BUDGET && env.CHAT_DAILY_BUDGET) {
+    const dentro = await dentroDePresupuesto(env);
+    if (!dentro) return fail(503, 'El asistente alcanzó su límite de uso de hoy. Prueba mañana o usa los botones de contacto.');
+  }
 
   let upstream;
   try {
